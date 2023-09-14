@@ -42,7 +42,7 @@ namespace ProductAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update(Guid id, UpdateProductDto productDto)
+        public ActionResult<ProductDto> Update(Guid id, UpdateProductDto productDto)
         {
             var existingProduct = Products.FirstOrDefault(p => p.Id == id);
             if (existingProduct is null) return NotFound();
