@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ProductApi.Models
 {
     public record ProductDto
@@ -11,13 +13,21 @@ namespace ProductApi.Models
 
     public record CreateProductDto
     {
+        [Required]
         public required string Name { get; init; }
+
+        [Required]
+        [Range(0, 10000)]
         public required int Price { get; init; }
     }
 
     public record UpdateProductDto
     {
+        [Required]
         public required string Name { get; init; }
+
+        [Required]
+        [Range(0, 10000)]
         public required int Price { get; init; }
     }
 }
